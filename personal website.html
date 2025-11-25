@@ -1,0 +1,338 @@
+<!DOCTYPE html>  
+<html lang="zh-CN" class="scroll-smooth">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>韦其龙 | 风控产品与策略专家</title>  
+    <!-- 引入 Google Fonts: Syne 用于标题 (艺术感), Inter 用于正文 (易读性) -->  
+    <link rel="preconnect" href="https://fonts.googleapis.com">  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">  
+      
+    <!-- 引入 Tailwind CSS -->  
+    <script src="https://cdn.tailwindcss.com"></script>  
+      
+    <!-- 引入 Font Awesome 图标 -->  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+  
+    <!-- 配置 Tailwind 主题 -->  
+    <script>  
+        tailwind.config = {  
+            theme: {  
+                extend: {  
+                    fontFamily: {  
+                        sans: ['Inter', 'sans-serif'],  
+                        display: ['Syne', 'sans-serif'],  
+                    },  
+                    colors: {  
+                        'brand-dark': '#0a0a0a',  
+                        'brand-gray': '#888888',  
+                    }  
+                }  
+            }  
+        }  
+    </script>  
+    <style>  
+        /* 自定义滚动条 */  
+        ::-webkit-scrollbar {  
+            width: 8px;  
+        }  
+        ::-webkit-scrollbar-track {  
+            background: #0a0a0a;   
+        }  
+        ::-webkit-scrollbar-thumb {  
+            background: #333;   
+        }  
+        ::-webkit-scrollbar-thumb:hover {  
+            background: #555;   
+        }  
+        .hero-text-stroke {  
+            -webkit-text-stroke: 1px rgba(255,255,255,0.1);  
+            color: transparent;  
+        }  
+    </style>  
+</head>  
+<body class="bg-brand-dark text-white font-sans antialiased selection:bg-white selection:text-black">  
+  
+    <!-- 导航栏 -->  
+    <nav class="fixed w-full z-50 top-0 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference">  
+        <div class="text-xl font-bold tracking-widest font-display">WQ.</div>  
+        <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">  
+            <a href="#about" class="hover:text-gray-400 transition">关于</a>  
+            <a href="#experience" class="hover:text-gray-400 transition">经历</a>  
+            <a href="#projects" class="hover:text-gray-400 transition">作品</a>  
+            <a href="#contact" class="border border-white px-4 py-1 rounded-full hover:bg-white hover:text-black transition">联系我</a>  
+        </div>  
+        <!-- 移动端菜单按钮 -->  
+        <button class="md:hidden text-xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">  
+            <i class="fa-solid fa-bars"></i>  
+        </button>  
+    </nav>  
+  
+    <!-- 移动端菜单 -->  
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-black z-40 flex flex-col justify-center items-center space-y-8 text-2xl md:hidden">  
+        <a href="#about" onclick="this.parentElement.classList.add('hidden')">关于</a>  
+        <a href="#experience" onclick="this.parentElement.classList.add('hidden')">经历</a>  
+        <a href="#projects" onclick="this.parentElement.classList.add('hidden')">作品</a>  
+        <a href="#contact" onclick="this.parentElement.classList.add('hidden')">联系我</a>  
+        <button class="absolute top-6 right-6" onclick="this.parentElement.classList.add('hidden')"><i class="fa-solid fa-xmark"></i></button>  
+    </div>  
+  
+    <!-- Hero 区域 (参考图风格) -->  
+    <header class="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden">  
+        <!-- 背景图 -->  
+        <div class="absolute inset-0 z-0">  
+            <img src="https://picsum.photos/1920/1080?random=1&grayscale" alt="Background" class="w-full h-full object-cover opacity-40 filter brightness-50">  
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/30 via-transparent to-brand-dark"></div>  
+        </div>  
+  
+        <!-- 悬浮标签 -->  
+        <div class="absolute top-32 left-6 md:left-12 text-xs font-bold tracking-[0.2em] text-gray-400 z-10">  
+            风控产品 / 策略专家  
+        </div>  
+        <div class="absolute top-32 right-6 md:right-12 text-xs font-bold tracking-[0.2em] text-gray-400 z-10 text-right">  
+            基于数据与AI <br> 驱动决策  
+        </div>  
+  
+        <!-- 名字主标题 -->  
+        <h1 class="font-display text-[15vw] md:text-[12vw] leading-none font-bold z-10 text-center tracking-tighter mix-blend-overlay opacity-90 mt-20">  
+            WEI QILONG  
+        </h1>  
+          
+        <!-- 中文名与简介 -->  
+        <div class="z-10 mt-8 max-w-2xl px-6 text-center">  
+            <h2 class="text-2xl md:text-4xl font-light mb-4">韦其龙</h2>  
+            <p class="text-brand-gray text-sm md:text-base leading-relaxed">  
+                专注于金融科技与人工智能结合的风险控制专家。<br>  
+                擅长利用机器学习、Python与大数据构建高效的风控策略模型。  
+            </p>  
+        </div>  
+  
+        <!-- 滚动提示 -->  
+        <div class="absolute bottom-10 animate-bounce">  
+            <i class="fa-solid fa-arrow-down text-white/50"></i>  
+        </div>  
+    </header>  
+  
+    <!-- 关于与数据亮点 (参考图中的数字部分) -->  
+    <section id="about" class="py-20 px-6 md:px-12 max-w-7xl mx-auto">  
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">  
+            <div class="text-xs font-bold tracking-[0.2em] text-brand-gray uppercase">About Me</div>  
+            <div>  
+                <p class="text-lg md:text-xl leading-relaxed font-light text-gray-200 mb-8">  
+                    你好，我是韦其龙。我拥有深圳大学工程管理与南特高商金融科技双学位背景。我热衷于将算法应用于实际业务场景，从用户行为监控到海外合规风控，我始终致力于通过数据挖掘寻找最优解。  
+                </p>  
+                <!-- 教育经历 -->  
+                <div class="space-y-4 border-l border-white/20 pl-6">  
+                    <div>  
+                        <h4 class="font-bold text-white">南特高等商学院 (Audencia)</h4>  
+                        <p class="text-sm text-gray-400">金融科技及风险控制硕士 | 2024 - 2026</p>  
+                    </div>  
+                    <div>  
+                        <h4 class="font-bold text-white">深圳大学</h4>  
+                        <p class="text-sm text-gray-400">工程管理本科 (Top 20%) | 2018 - 2022</p>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+  
+        <!-- 关键数据 (模仿参考图 10+ 40+ 95%) -->  
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-12">  
+            <div class="text-center md:text-left">  
+                <div class="font-display text-4xl md:text-6xl font-bold mb-2">46<span class="text-2xl align-top">%</span></div>  
+                <div class="text-[10px] tracking-[0.2em] uppercase text-brand-gray">策略准确率提升</div>  
+            </div>  
+            <div class="text-center md:text-left">  
+                <div class="font-display text-4xl md:text-6xl font-bold mb-2">6w<span class="text-2xl align-top">+</span></div>  
+                <div class="text-[10px] tracking-[0.2em] uppercase text-brand-gray">文本内容分析</div>  
+            </div>  
+            <div class="text-center md:text-left">  
+                <div class="font-display text-4xl md:text-6xl font-bold mb-2">88w<span class="text-2xl align-top">+</span></div>  
+                <div class="text-[10px] tracking-[0.2em] uppercase text-brand-gray">客户数据处理</div>  
+            </div>  
+            <div class="text-center md:text-left">  
+                <div class="font-display text-4xl md:text-6xl font-bold mb-2">0.69</div>  
+                <div class="text-[10px] tracking-[0.2em] uppercase text-brand-gray">模型 AUC 指标</div>  
+            </div>  
+        </div>  
+    </section>  
+  
+    <!-- 履历/What I Do (参考图列表风格) -->  
+    <section id="experience" class="py-20 px-6 md:px-12 bg-[#0f0f0f]">  
+        <div class="max-w-7xl mx-auto">  
+            <h2 class="font-display text-5xl md:text-7xl font-bold mb-16 leading-tight">  
+                Professional <br> Experience  
+            </h2>  
+  
+            <!-- 列表项 1 -->  
+            <div class="group border-b border-white/20 py-10 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-white/5 transition duration-300 px-4">  
+                <div class="mb-4 md:mb-0">  
+                    <div class="text-xs text-brand-gray mb-1">2024 - Present (Intern)</div>  
+                    <h3 class="text-2xl md:text-3xl font-bold group-hover:text-white transition">易宝支付有限公司</h3>  
+                    <p class="text-gray-400 mt-2">海外合规风控 | AI辅助制裁识别 | 风险标签库建设</p>  
+                </div>  
+                <div class="text-right hidden md:block opacity-0 group-hover:opacity-100 transition transform translate-x-4 group-hover:translate-x-0">  
+                    <span class="text-4xl"><i class="fa-solid fa-arrow-right"></i></span>  
+                </div>  
+            </div>  
+  
+            <!-- 列表项 2 -->  
+            <div class="group border-b border-white/20 py-10 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-white/5 transition duration-300 px-4">  
+                <div class="mb-4 md:mb-0">  
+                    <div class="text-xs text-brand-gray mb-1">Previous Experience</div>  
+                    <h3 class="text-2xl md:text-3xl font-bold group-hover:text-white transition">高亮文化传媒</h3>  
+                    <p class="text-gray-400 mt-2">逻辑回归评分卡 | LDA文本建模 | 恶意引流拦截</p>  
+                </div>  
+                <div class="text-right hidden md:block opacity-0 group-hover:opacity-100 transition transform translate-x-4 group-hover:translate-x-0">  
+                    <span class="text-4xl"><i class="fa-solid fa-arrow-right"></i></span>  
+                </div>  
+            </div>  
+  
+            <!-- 列表项 3 -->  
+            <div class="group border-b border-white/20 py-10 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-white/5 transition duration-300 px-4">  
+                <div class="mb-4 md:mb-0">  
+                    <div class="text-xs text-brand-gray mb-1">Project Highlight</div>  
+                    <h3 class="text-2xl md:text-3xl font-bold group-hover:text-white transition">P2P网贷违约预测</h3>  
+                    <p class="text-gray-400 mt-2">XGBoost vs 逻辑回归 | 语言学特征工程 | 8.5w有效数据</p>  
+                </div>  
+                <div class="text-right hidden md:block opacity-0 group-hover:opacity-100 transition transform translate-x-4 group-hover:translate-x-0">  
+                    <span class="text-4xl"><i class="fa-solid fa-arrow-right"></i></span>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+  
+    <!-- 作品展示 (参考图网格布局) -->  
+    <section id="projects" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">  
+        <div class="flex justify-between items-end mb-12">  
+            <div>  
+                <div class="text-xs font-bold tracking-[0.2em] text-brand-gray mb-2 uppercase">Portfolio</div>  
+                <h2 class="font-display text-4xl md:text-5xl font-bold">AI & Tools</h2>  
+            </div>  
+            <div class="hidden md:block">  
+                <span class="text-sm text-gray-400">探索技术的无限可能</span>  
+            </div>  
+        </div>  
+  
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">  
+              
+            <!-- Project 1 -->  
+            <a href="https://jueming.agent101.cn/" target="_blank" class="group relative block h-[400px] overflow-hidden bg-gray-800">  
+                <img src="https://picsum.photos/600/800?random=20" alt="Project" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-40">  
+                <div class="absolute bottom-0 left-0 p-8 w-full">  
+                    <div class="text-xs font-bold bg-white text-black inline-block px-2 py-1 mb-3">AI 辅助决策</div>  
+                    <h3 class="text-2xl font-display font-bold mb-1">决明子工具</h3>  
+                    <p class="text-sm text-gray-300 h-0 overflow-hidden group-hover:h-auto transition-all duration-300">智能辅助决策系统，提升业务判断效率。</p>  
+                </div>  
+                <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition duration-300 bg-white text-black w-10 h-10 flex items-center justify-center rounded-full">  
+                    <i class="fa-solid fa-arrow-up-right"></i>  
+                </div>  
+            </a>  
+  
+            <!-- Project 2 -->  
+            <a href="https://www.coze.cn/store/agent/7568407479689003042?bot_id=true" target="_blank" class="group relative block h-[400px] overflow-hidden bg-gray-800 md:mt-12">  
+                <img src="https://picsum.photos/600/800?random=30" alt="Project" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-40">  
+                <div class="absolute bottom-0 left-0 p-8 w-full">  
+                    <div class="text-xs font-bold bg-white text-black inline-block px-2 py-1 mb-3">Coze Agent</div>  
+                    <h3 class="text-2xl font-display font-bold mb-1">文章转图文</h3>  
+                    <p class="text-sm text-gray-300 h-0 overflow-hidden group-hover:h-auto transition-all duration-300">自动化内容生产工具，快速将长文转化为社交媒体图文。</p>  
+                </div>  
+                <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition duration-300 bg-white text-black w-10 h-10 flex items-center justify-center rounded-full">  
+                    <i class="fa-solid fa-arrow-up-right"></i>  
+                </div>  
+            </a>  
+  
+            <!-- Project 3 -->  
+            <a href="https://agent101.feishu.cn/wiki/KLarwIA1piLrBYk7bf2cBf3HnNe" target="_blank" class="group relative block h-[400px] overflow-hidden bg-gray-800">  
+                <img src="https://picsum.photos/600/800?random=40" alt="Project" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-40">  
+                <div class="absolute bottom-0 left-0 p-8 w-full">  
+                    <div class="text-xs font-bold bg-white text-black inline-block px-2 py-1 mb-3">Knowledge Base</div>  
+                    <h3 class="text-2xl font-display font-bold mb-1">Agent 101 指北</h3>  
+                    <p class="text-sm text-gray-300 h-0 overflow-hidden group-hover:h-auto transition-all duration-300">飞书知识库，持续更新的智能体开发与应用指南。</p>  
+                </div>  
+                <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition duration-300 bg-white text-black w-10 h-10 flex items-center justify-center rounded-full">  
+                    <i class="fa-solid fa-arrow-up-right"></i>  
+                </div>  
+            </a>  
+  
+        </div>  
+    </section>  
+  
+    <!-- 技能标签云 -->  
+    <section class="py-12 border-t border-white/10">  
+        <div class="max-w-7xl mx-auto px-6 md:px-12">  
+            <div class="flex flex-wrap justify-center gap-4 opacity-60">  
+                <span class="px-6 py-3 border border-white/20 rounded-full text-sm">Python</span>  
+                <span class="px-6 py-3 border border-white/20 rounded-full text-sm">SQL</span>  
+                <span class="px-6 py-3 border border-white/20 rounded-full text-sm">Java</span>  
+                <span class="px-6 py-3 border border-white/20 rounded-full text-sm">Machine Learning</span>  
+                <span class="px-6 py-3 border border-white/20 rounded-full text-sm">XGBoost</span>  
+                <span class="px-6 py-3 border border-white/20 rounded-full text-sm">Risk Management</span>  
+                <span class="px-6 py-3 border border-white/20 rounded-full text-sm">Data Mining</span>  
+                <span class="px-6 py-3 border border-white/20 rounded-full text-sm">English (CET-4)</span>  
+            </div>  
+        </div>  
+    </section>  
+  
+    <!-- 联系 Footer -->  
+    <footer id="contact" class="relative py-24 px-6 md:px-12 bg-[#050505] overflow-hidden">  
+        <!-- 背景装饰 -->  
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>  
+          
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end">  
+            <div class="mb-12 md:mb-0">  
+                <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">  
+                    Let's create <br> something secure.  
+                </h2>  
+                <p class="text-brand-gray max-w-md mb-8">  
+                    无论是风控策略搭建，还是AI工具开发，欢迎随时联系我。  
+                </p>  
+                <a href="mailto:616695245@qq.com" class="bg-white text-black px-8 py-4 font-bold hover:bg-gray-200 transition inline-block">  
+                    联系我  
+                </a>  
+            </div>  
+  
+            <div class="space-y-4 text-right w-full md:w-auto flex flex-col items-start md:items-end">  
+                <div class="flex items-center gap-3">  
+                    <span class="text-sm text-gray-400">WeChat</span>  
+                    <span class="text-lg font-bold">a616695245</span>  
+                </div>  
+                <div class="flex items-center gap-3">  
+                    <span class="text-sm text-gray-400">Phone</span>  
+                    <span class="text-lg font-bold">132-0288-5526</span>  
+                </div>  
+                <div class="flex items-center gap-3">  
+                    <span class="text-sm text-gray-400">Email</span>  
+                    <span class="text-lg font-bold">616695245@qq.com</span>  
+                </div>  
+            </div>  
+        </div>  
+  
+        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between text-xs text-gray-600">  
+            <p>&copy; 2024 Wei Qilong. All rights reserved.</p>  
+            <p>Based in China / Available for Remote</p>  
+        </div>  
+    </footer>  
+  
+    <!-- 简单的 JS 交互：鼠标跟随效果或淡入动画 -->  
+    <script>  
+        // 简单的页面进入动画  
+        document.addEventListener('DOMContentLoaded', () => {  
+            const observer = new IntersectionObserver((entries) => {  
+                entries.forEach(entry => {  
+                    if (entry.isIntersecting) {  
+                        entry.target.classList.add('opacity-100', 'translate-y-0');  
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');  
+                    }  
+                });  
+            });  
+  
+            // 给所有 section 的标题添加动画类  
+            document.querySelectorAll('h2, h3').forEach(el => {  
+                el.classList.add('transition', 'duration-1000', 'opacity-0', 'translate-y-10');  
+                observer.observe(el);  
+            });  
+        });  
+    </script>  
+</body>  
+</html>  
